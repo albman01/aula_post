@@ -128,6 +128,11 @@
           <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard Admin</a>
         </li>
         @endif
+        @if (Auth::user()->is_writer)
+              <li>
+                <a class="nav-link" href="{{route('writer.dashboard')}}">Dashboard Writer</a>
+              </li>
+            @endif
         <li class="nav-item">
           <a class="nav-link" href="{{ route('articles.create') }}">Inserisci un articolo</a>
         </li>
@@ -147,9 +152,7 @@
               <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard Admin</a>
             </li>
             @endif
-            @if (Auth::user()->is_writer)
-              <li><a class="dropdown-item" href="{{route('writer.dashboard')}}">Dashboard Writer</a></li>
-            @endif
+            
               <li>
               <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('form-logout').submit();">Logout</a>
               <form id="form-logout" action="{{ route('logout') }}" method="post" class="d-none">@csrf</form>

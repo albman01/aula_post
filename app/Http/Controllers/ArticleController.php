@@ -112,9 +112,9 @@ class ArticleController extends Controller implements HasMiddleware
     public function update(Request $request, Article $article)
     {
         $request->validate([
-            'title' => 'required|min:5|unique:articles,title' . $article->id,
+            'title' => 'required|min:5',
             'subtitle' => 'required|min:5',
-            'body' => 'image',
+            'body' => 'required',
             'category' => 'required',
             'tags' => 'required'
         ]);
