@@ -66,7 +66,7 @@ class ArticleController extends Controller implements HasMiddleware
         
     ]);
 
-   //dd($request->image);
+   
 
     
         $article = Article::create([
@@ -74,7 +74,7 @@ class ArticleController extends Controller implements HasMiddleware
         'subtitle' =>$request->subtitle,
         'description'=>$request->description,
         'category_id' => $request->category,
-        'image'=> $request->file('image')->store(path: 'public/images'),
+        'image' => $request->file('image')->store('images', 'public'),
         'user_id' => Auth::user()->id,
     ]);
 
